@@ -16,7 +16,7 @@ class Vecino extends Model
         'apellido2',
         'telefono',
         'mail'
-    ];
+    ]; 
 
     protected $hidden =['created_at','updated_at'];
 }

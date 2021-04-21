@@ -9,6 +9,9 @@
                 <li>
                     <a href="{{route('vecinos.index')}}">Ver todos los vecinos</a>
                 </li>
+                <li>
+                    <a href="{{route('vecinos.create')}}">Nuevo Vecino</a>
+                </li>
             </ul>
         </ul>
     </div>

@@ -29,6 +29,7 @@ class VecinoController extends Controller
     public function create()
     {
         //
+        return view ('vecinos.nuevo');
     }
 
     /**
@@ -40,6 +41,24 @@ class VecinoController extends Controller
     public function store(Request $request)
     {
         //
+       $reglas=['form_nombre_vecino'=>'required',
+                'form_apellido1_vecino'=>'required',
+                'form_apellido2_vecino'=>'required',
+                'form_nombre_vecino'.'form_apellido1_vecino'.'form_apellido2_vecino'=>'unique',                
+                'form_telefono_vecino'=>'required',
+                'form_email_vecino'=>'required|email:rfc,dns',        
+        ];
+        $request ->validate($reglas);
+
+        Vecino::create([
+            'nombre'=>$request['form_nombre_vecino'],
+            'apellido1'=>$request['form_apellido1_vecino'],
+            'apellido2'=>$request['form_apellido2_vecino'],
+            'telefono'=>$request['form_telefono_vecino'],
+            'mail'=>$request['form_email_vecino']
+        ]);
+        return "artículo grabado ok";
+
     }
 
     /**
