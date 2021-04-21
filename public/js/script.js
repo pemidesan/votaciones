@@ -1,1 +1,0 @@
-alert("Página de votaciones de Pedro Miguel Deseado");

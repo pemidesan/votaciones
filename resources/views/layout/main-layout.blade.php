@@ -12,7 +12,7 @@
     </head>
     <body>        
         <div>
-            <h1>hola</h1>
+            <h1>VOTACIONES. Pedro Miguel Deseado Sandonís</h1>
             @yield('content-area')
         </div>
     </body> 

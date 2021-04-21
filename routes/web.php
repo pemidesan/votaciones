@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\VecinoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::get('/',function(){
 });
 */
 Route::get('/',[MainController::class,'raiz']) -> name('entrada');
+Route::resource('vecinos',VecinoController::class);
