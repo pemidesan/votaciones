@@ -41,24 +41,25 @@ class VecinoController extends Controller
     public function store(Request $request)
     {
         //
-       $reglas=['form_nombre_vecino'=>'required',
-                'form_apellido1_vecino'=>'required',
-                'form_apellido2_vecino'=>'required',
-                'form_nombre_vecino'.'form_apellido1_vecino'.'form_apellido2_vecino'=>'unique',                
-                'form_telefono_vecino'=>'required',
-                'form_email_vecino'=>'required|email:rfc,dns',        
+       $reglas=['nombre'=>'required',
+                'apellido1'=>'required',
+                'apellido2'=>'required',
+                'telefono'=>'required',
+                'mail'=>'required|email:rfc,dns',        
         ];
         $request ->validate($reglas);
 
         Vecino::create([
-            'nombre'=>$request['form_nombre_vecino'],
-            'apellido1'=>$request['form_apellido1_vecino'],
-            'apellido2'=>$request['form_apellido2_vecino'],
-            'telefono'=>$request['form_telefono_vecino'],
-            'mail'=>$request['form_email_vecino']
+            'nombre'=>$request['nombre'],
+            'apellido1'=>$request['apellido1'],
+            'apellido2'=>$request['apellido2'],
+            'telefono'=>$request['telefono'],
+            'mail'=>$request['mail']
         ]);
-        return "artículo grabado ok";
 
+        $nuevoVecino = $request;
+        
+        return view ("vecinos.accionOk",['vecino'=>$nuevoVecino,'accion'=>'creado']);
     }
 
     /**
@@ -82,6 +83,7 @@ class VecinoController extends Controller
     public function edit(Vecino $vecino)
     {
         //
+        return view ('vecinos.editar') -> with (['unVecino'=>$vecino]);
     }
 
     /**
@@ -94,6 +96,28 @@ class VecinoController extends Controller
     public function update(Request $request, Vecino $vecino)
     {
         //
+            //
+       $reglas=['form_nombre_vecino'=>'required',
+       'form_apellido1_vecino'=>'required',
+       'form_apellido2_vecino'=>'required',                       
+       'form_telefono_vecino'=>'required',
+       'form_email_vecino'=>'required|email:rfc,dns',        
+        ];
+        $request ->validate($reglas);
+
+        $nuevoVecino = Vecino::find($vecino->id);
+        $nuevoVecino->nombre = $request->form_nombre_vecino;
+        $nuevoVecino->apellido1 = $request->form_apellido1_vecino;
+        $nuevoVecino->apellido2 = $request->form_apellido2_vecino;
+        $nuevoVecino->telefono = $request->form_telefono_vecino;
+        $nuevoVecino->mail = $request->form_email_vecino;
+        $nuevoVecino->save();
+
+        return view ("vecinos.accionOk",['vecino'=>$nuevoVecino,'accion'=>'actualizado']);
+
+
+
+
     }
 
     /**
