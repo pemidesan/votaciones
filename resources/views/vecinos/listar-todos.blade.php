@@ -2,9 +2,16 @@
 @section('page-title','Página de vecinos')
 @section('content-area')
     <h1>Lista total de vecinos</h1>    
+    {{$vecinos ->links()}}
+    <form action="{{route('vecinos.create')}}" method="POST">
+        @csrf
+        @method('GET')
+        <button type="submit" class="btn btn-primary btn-lg">Añadir</button>
+    </form>
     <table class="table">
         <thead>
            <tr>
+               <th></th>
                <th></th>
                <th></th>
                <th>Nombre</th>
@@ -18,6 +25,15 @@
                 <tr>
                     <td><a href="{{route('vecinos.show',['vecino'=>$v])}}"><i class="bi bi-info-circle"></i></a></td>
                     <td><a href="{{route('vecinos.edit',['vecino'=>$v])}}"><i class="bi bi-pencil"></i></a></td>
+
+                   <!-- <td><a href="{{route('vecinos.destroy',['vecino'=>$v])}}"><i class="bi bi-trash"></i></a></td>-->
+                    <td>
+                        <form action="{{route('vecinos.destroy',['vecino'=>$v])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type='submit'><i class="bi bi-trash"></i></button>
+                        </form>
+                    </td>
                     <td>{{$v->nombre}}</td>
                     <td>{{$v->apellido1}}</td>
                     <td>{{$v->apellido2}}</td>
@@ -28,4 +44,5 @@
            </tbody>
         </thead>
     </table>
+    {{$vecinos ->links()}}
 @endsection

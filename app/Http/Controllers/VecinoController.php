@@ -16,8 +16,8 @@ class VecinoController extends Controller
     {
         //
        // return "Lista de vecinos en el sistema";
-       $vecinos = Vecino::all();
-       return view ('vecinos.listar-todos')->with(['vecinos'=> $vecinos]);
+       $vecinos = Vecino::paginate(50);
+       return view ('vecinos.listar-todos',['vecinos'=>$vecinos]);
       // return view ('vecinos.listar-todos',['vecinos'=>$vecinos]);
     }
 
@@ -57,9 +57,9 @@ class VecinoController extends Controller
             'mail'=>$request['mail']
         ]);
 
-        $nuevoVecino = $request;
+        //$nuevoVecino = $request;
         
-        return view ("vecinos.accionOk",['vecino'=>$nuevoVecino,'accion'=>'creado']);
+        return view ("vecinos.accionOk",['vecino'=>$request,'accion'=>'creado']);
     }
 
     /**
@@ -114,10 +114,6 @@ class VecinoController extends Controller
         $nuevoVecino->save();
 
         return view ("vecinos.accionOk",['vecino'=>$nuevoVecino,'accion'=>'actualizado']);
-
-
-
-
     }
 
     /**
@@ -129,5 +125,7 @@ class VecinoController extends Controller
     public function destroy(Vecino $vecino)
     {
         //
+        $vecino->delete();
+        return view ("vecinos.accionOk",['vecino'=>$vecino,'accion'=>'borrado']);
     }
 }
