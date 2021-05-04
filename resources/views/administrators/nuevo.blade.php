@@ -1,5 +1,5 @@
 @extends('layout.main-layout')
-@section('page-title','Nuevo vecino')
+@section('page-title','Nuevo Administrador')
 @section('content-area')
     <h2>Vecinos</h2>
     @if ($errors->any())
@@ -7,9 +7,9 @@
             <li>{{$e}}</li>
         @endforeach
     @endif
-    <form action="{{route('vecinos.store')}}" method="POST">
+    <form action="{{route('administrators.store')}}" method="POST">
         @csrf
-        <h3><legend>Alta de nuevo Vecino</legend></h3>
+        <h3><legend>Alta de nuevo Administrador</legend></h3>
         <p>Nombre</p><input type="text" name="nombre" value="{{old('nombre')}}">
         <p>Primer Apellido</p><input type="text" name="apellido1" value="{{old('apellido1')}}">
         <p>Segundo Apellido</p><input type="text" name="apellido2" value="{{old('apellido2')}}">

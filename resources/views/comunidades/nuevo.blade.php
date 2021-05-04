@@ -1,7 +1,7 @@
 @extends('layout.main-layout')
 @section('page-title','Nuevo vecino')
 @section('content-area')
-    <h2>Nuevo artículo</h2>
+    <h2>Comunidades</h2>
     @if ($errors->any())
         @foreach ($errors->all() as $e)
             <li>{{$e}}</li>
@@ -9,7 +9,7 @@
     @endif
     <form action="{{route('comunidades.store')}}" method="POST">
         @csrf
-        <h3><legend>Alta de nueva Comunidade</legend></h3>
+        <h3><legend>Alta de nueva Comunidad</legend></h3>
         <p>Dirección</p><input type="text" name="direccion" value="{{old('direccion')}}">
         <p>Alias</p><input type="text" name="alias" value="{{old('alias')}}">
         <p>Ciudad</p><input type="text" name="ciudad" value="{{old('ciudad')}}">

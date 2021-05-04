@@ -15,6 +15,15 @@
         <ul>
             <li>  
                     <div class="alert alert-success" role="alert">
+                        <a href="{{route('administrators.index')}}">Gestión de Administradores</a>
+                    </div>                  
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li>  
+                    <div class="alert alert-success" role="alert">
                         <a href="{{route('comunidades.index')}}">Gestión de Comunidades</a>
                     </div>                  
             </li>
