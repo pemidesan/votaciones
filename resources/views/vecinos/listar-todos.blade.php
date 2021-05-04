@@ -1,7 +1,8 @@
 @extends('layout.main-layout')
-@section('page-title','Página de vecinos')
+@section('page-title','Vecinos')
 @section('content-area')
-    <h1>Lista total de vecinos</h1>    
+    <h1>Vecinos</h1>    
+   
     {{$vecinos ->links()}}
     <form action="{{route('vecinos.create')}}" method="POST">
         @csrf
@@ -20,6 +21,7 @@
                <th>Teléfono</th>
                <th>e-mail</th>
            </tr> 
+        </thead>
            <tbody>
                @foreach($vecinos as $v)
                 <tr>
@@ -42,7 +44,7 @@
                 </tr>
                @endforeach
            </tbody>
-        </thead>
+       
     </table>
-    {{$vecinos ->links()}}
+    {{$vecinos ->links()}}    
 @endsection

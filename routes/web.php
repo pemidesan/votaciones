@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\VecinoController;
+use App\Http\Controllers\ComunidadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,4 @@ Route::get('/',function(){
 */
 Route::get('/',[MainController::class,'raiz']) -> name('entrada');
 Route::resource('vecinos',VecinoController::class);
+Route::resource('comunidades',ComunidadController::class,['parameters'=>['comunidades'=>'comunidad']]);

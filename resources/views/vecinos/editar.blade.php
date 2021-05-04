@@ -18,5 +18,5 @@
         <br><br><br>
         <button type="submit">Actualizar Registro</button>        
         <button type="reset">Limpiar Formulario</button>
-    </form>
+    </form> 
 @endsection

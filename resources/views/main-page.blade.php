@@ -11,4 +11,13 @@
             </li>
         </ul>
     </div>
+    <div>
+        <ul>
+            <li>  
+                    <div class="alert alert-success" role="alert">
+                        <a href="{{route('comunidades.index')}}">Gestión de Comunidades</a>
+                    </div>                  
+            </li>
+        </ul>
+    </div>
 @endsection

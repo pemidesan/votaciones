@@ -17,7 +17,9 @@
         <div class="container">
             <h1>VOTACIONES. V.1.0</h1>
             @yield('content-area')
+            <br><br><a href="{{url('/')}}">Volver a Página principal</a>
         </div>
+        
     </body> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </html>

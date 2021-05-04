@@ -9,7 +9,6 @@ class Vecino extends Model
 {
     use HasFactory;
     protected $table = 'vecinos';
-
     protected $fillable=[
         'nombre',
         'apellido1',
@@ -17,6 +16,5 @@ class Vecino extends Model
         'telefono',
         'mail'
     ]; 
-
     protected $hidden =['created_at','updated_at'];
 }
