@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Vecino;
+use App\Models\Administrator;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class VecinoFactory extends Factory
+class AdministratorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Vecino::class;
+    protected $model = Administrator::class;
 
     /**
      * Define the model's default state.

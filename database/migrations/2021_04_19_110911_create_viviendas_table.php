@@ -15,8 +15,7 @@ class CreateViviendasTable extends Migration
     {
         Schema::create('viviendas', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->id();
-            $table->string('direccion',100);
+            $table->id();            
             $table->integer('numero')->unsigned();
             $table->unsignedSmallInteger('piso');
             $table->string('puerta',3);                        

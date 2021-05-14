@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vivienda;    
 
 class Vecino extends Model
 {
@@ -17,4 +18,9 @@ class Vecino extends Model
         'mail'
     ]; 
     protected $hidden =['created_at','updated_at'];
+
+    public function viviendas()
+    {
+        return $this -> belongToMany(Vivienda::class);
+    }
 }

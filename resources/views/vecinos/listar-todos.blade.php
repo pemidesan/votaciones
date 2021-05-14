@@ -7,7 +7,7 @@
     <form action="{{route('vecinos.create')}}" method="POST">
         @csrf
         @method('GET')
-        <button type="submit" class="btn btn-primary btn-lg">Añadir</button>
+        <button type="submit" class="btn btn-primary btn-sm">Añadir Vecino</button>
     </form>
     <table class="table">
         <thead>
@@ -15,6 +15,7 @@
                <th></th>
                <th></th>
                <th></th>
+               <th>id</th>
                <th>Nombre</th>
                <th>Apellido1</th>
                <th>Apellido2</th>
@@ -36,11 +37,19 @@
                             <button type='submit'><i class="bi bi-trash"></i></button>
                         </form>
                     </td>
+                    <td>{{$v->id}}</td>
                     <td>{{$v->nombre}}</td>
                     <td>{{$v->apellido1}}</td>
                     <td>{{$v->apellido2}}</td>
                     <td>{{$v->telefono}}</td>
                     <td>{{$v->mail}}</td>
+                    <td>
+                        <form action="{{route('vecinos.create')}}" method="POST">
+                            @csrf
+                            @method('GET')
+                            <button type="submit" class="btn btn-info btn-sm">Viviendas Asignadas</button>
+                        </form>                    
+                    </td>
                 </tr>
                @endforeach
            </tbody>

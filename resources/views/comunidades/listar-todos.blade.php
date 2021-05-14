@@ -2,6 +2,7 @@
 @section('page-title','Comunidades')
 @section('content-area')
     <h1>Comunidades</h1> 
+    {{$comunidades ->links()}}
     <form action="{{route('comunidades.create')}}" method="POST">
         @csrf
         @method('GET')
@@ -9,10 +10,7 @@
     </form>  
     <table class="table">
         <thead>
-            <tr>
-             <!--   <th></th>
-                <th></th>
-                <th></th>-->
+            <tr>          
                 <th></th>
                 <th></th>
                 <th></th>
@@ -38,8 +36,17 @@
                     <td>{{$c->alias}}</td>
                     <td>{{$c->ciudad}}</td>
                     <td>{{$c->provincia}}</td>
+                    <td>
+                        <form action="{{route('verViviendas',['comunidad'=>$c])}}" method="POST">
+                            @csrf
+                            @method('GET')
+                            <button type="submit" class="btn btn-info btn-sm">Viviendas Asignadas</button>
+                        </form>                    
+                    </td>
+                       
                 </tr>
              @endforeach
          </tbody>
     </table>
+    {{$comunidades ->links()}}    
 @endsection
