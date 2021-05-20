@@ -40,7 +40,8 @@
                         <form action="{{route('verViviendas',['comunidad'=>$c])}}" method="POST">
                             @csrf
                             @method('GET')
-                            <button type="submit" class="btn btn-info btn-sm">Viviendas Asignadas</button>
+                            <button type="submit" class="btn btn-info btn-sm">
+                                Viviendas Asignadas {{\App\Models\Vivienda::where('comunidad_id','=',$c->id)->count()}}</button>
                         </form>                    
                     </td>
                        

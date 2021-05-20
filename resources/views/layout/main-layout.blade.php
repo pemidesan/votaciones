@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
         <title>@yield('page-title')</title>
+        @livewireStyles
+        @livewireScripts
     </head>
     <body>        
         <div class="container">

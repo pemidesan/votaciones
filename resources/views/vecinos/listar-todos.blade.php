@@ -44,10 +44,11 @@
                     <td>{{$v->telefono}}</td>
                     <td>{{$v->mail}}</td>
                     <td>
-                        <form action="{{route('vecinos.create')}}" method="POST">
+                        <form action="{{route('verVecinoViviendas',['vecino'=>$v])}}" method="POST">
                             @csrf
                             @method('GET')
-                            <button type="submit" class="btn btn-info btn-sm">Viviendas Asignadas</button>
+                            <button type="submit" class="btn btn-info btn-sm">
+                                Viviendas Asignadas {{\App\Models\vecinosVivienda::where('vecino_id','=',$v->id)->count()}}</button>
                         </form>                    
                     </td>
                 </tr>

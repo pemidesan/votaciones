@@ -1,3 +1,4 @@
+
 @extends('layout.main-layout')
 @section('page-title','Bienvenidos a la página de votaciones')
 @section('content-area') 
@@ -11,4 +12,5 @@
         <div class="alert alert-success" role="alert">
             <a href="{{route('comunidades.index')}}">Gestión de Comunidades</a>
         </div> 
+       
 @endsection

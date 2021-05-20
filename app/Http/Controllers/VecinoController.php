@@ -16,7 +16,7 @@ class VecinoController extends Controller
     {
         //
        // return "Lista de vecinos en el sistema";
-       $vecinos = Vecino::paginate(50);
+       $vecinos = Vecino::paginate(50);     
        return view ('vecinos.listar-todos',['vecinos'=>$vecinos]);
       // return view ('vecinos.listar-todos',['vecinos'=>$vecinos]);
     }

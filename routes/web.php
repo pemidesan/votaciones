@@ -6,6 +6,7 @@ use App\Http\Controllers\VecinoController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\ViviendaController;
+use App\Http\Controllers\VecinoViviendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,7 @@ Route::get('viviendas/editar/{vivienda}',[ViviendaController::class,'edit']) -> 
 Route::delete('viviendas/borrar/{vivienda}',[ViviendaController::class,'destroy']) -> name('borrarVivienda');
 Route::get('viviendas/crear/{comunidad}',[ViviendaController::class,'create']) -> name('crearVivienda');
 Route::post('viviendas/guardar/{comunidad}',[ViviendaController::class,'store']) ->name('viviendaGrabar');
+Route::get('vecinosViviendas/listar/{vecino}',[VecinoViviendaController::class,'index']) -> name('verVecinoViviendas');
+Route::get('vecinosViviendas/crear/{id_vecino}',[VecinoViviendaController::class,'create']) -> name('crearVecinoVivienda');
+Route::post('vecinosViviendas/guardar',[VecinoViviendaController::class,'store']) ->name('vecinosViviendasGrabar');
+Route::delete('vecinosViviendas/borrar/{id_vecinoVivienda}',[VecinoViviendaController::class,'destroy']) -> name('borrarVecinoVivienda');
