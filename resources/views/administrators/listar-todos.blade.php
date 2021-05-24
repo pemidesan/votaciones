@@ -41,6 +41,14 @@
                     <td>{{$a->apellido2}}</td>
                     <td>{{$a->telefono}}</td>
                     <td>{{$a->mail}}</td>
+                    <td>
+                        <form action="{{route('verAdministradorComunidad',['administrator'=>$a])}}" method="POST">
+                            @csrf
+                            @method('GET')
+                            <button type="submit" class="btn btn-info btn-sm">
+                                Comunidades Gestionadas {{\App\Models\administradoresComunidad::where('administradoresComunidades.administrator_id','=',$a->id)->count()}}</button>
+                        </form>                    
+                    </td>
                 </tr>
                @endforeach
            </tbody>

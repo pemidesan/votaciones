@@ -7,6 +7,7 @@ use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\ViviendaController;
 use App\Http\Controllers\VecinoViviendaController;
+use App\Http\Controllers\AdministradorComunidadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,7 @@ Route::get('vecinosViviendas/listar/{vecino}',[VecinoViviendaController::class,'
 Route::get('vecinosViviendas/crear/{vecino_id}',[VecinoViviendaController::class,'create']) -> name('crearVecinoVivienda');
 Route::post('vecinosViviendas/guardar',[VecinoViviendaController::class,'store']) ->name('vecinosViviendasGrabar');
 Route::delete('vecinosViviendas/borrar/{id_vecinoVivienda}',[VecinoViviendaController::class,'destroy']) -> name('borrarVecinoVivienda');
+Route::get('administradorComunidad/listar/{administrator}',[AdministradorComunidadController::class,'index']) -> name('verAdministradorComunidad');
+Route::get('administradorComunidad/crear/{administrator_id}',[AdministradorComunidadController::class,'create']) -> name('crearAdministradorComunidad');
+Route::post('administradorComunidad/guardar',[AdministradorComunidadController::class,'store']) ->name('administradorComunidadGrabar');
+Route::delete('administradorComunidad/borrar/{id_administradorComunidad}',[AdministradorComunidadController::class,'destroy']) -> name('borrarAdministradorComunidad');
