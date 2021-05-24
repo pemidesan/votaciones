@@ -40,6 +40,6 @@ Route::delete('viviendas/borrar/{vivienda}',[ViviendaController::class,'destroy'
 Route::get('viviendas/crear/{comunidad}',[ViviendaController::class,'create']) -> name('crearVivienda');
 Route::post('viviendas/guardar/{comunidad}',[ViviendaController::class,'store']) ->name('viviendaGrabar');
 Route::get('vecinosViviendas/listar/{vecino}',[VecinoViviendaController::class,'index']) -> name('verVecinoViviendas');
-Route::get('vecinosViviendas/crear/{id_vecino}',[VecinoViviendaController::class,'create']) -> name('crearVecinoVivienda');
+Route::get('vecinosViviendas/crear/{vecino_id}',[VecinoViviendaController::class,'create']) -> name('crearVecinoVivienda');
 Route::post('vecinosViviendas/guardar',[VecinoViviendaController::class,'store']) ->name('vecinosViviendasGrabar');
 Route::delete('vecinosViviendas/borrar/{id_vecinoVivienda}',[VecinoViviendaController::class,'destroy']) -> name('borrarVecinoVivienda');

@@ -3,10 +3,7 @@
 namespace App\Http\Livewire;
 
 
-
-
 use Illuminate\Http\Request;
-
 use Livewire\Component;
 use App\Models\Comunidad;
 use App\Models\Vivienda;

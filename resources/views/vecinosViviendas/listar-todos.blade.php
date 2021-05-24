@@ -2,7 +2,7 @@
 @section('page-title','VecinosViviendas')
 @section('content-area')
     <h1>Viviendas del vecino {{$datoVecino}}</h1>  
-    <form action="{{route('crearVecinoVivienda',['id_vecino'=>$id_vecino])}}" method="POST">
+    <form action="{{route('crearVecinoVivienda',['vecino_id'=>$vecino_id])}}" method="POST">
         @csrf
         @method('GET')
         <button type="submit" class="btn btn-primary btn-lg">Añadir Vivienda</button>

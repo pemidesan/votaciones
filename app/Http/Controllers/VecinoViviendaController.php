@@ -9,6 +9,7 @@ use App\Models\Comunidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use App\Http\Livewire;
 
 class VecinoViviendaController extends Controller
 {
@@ -30,62 +31,34 @@ class VecinoViviendaController extends Controller
      
                             
         
-            return view ('vecinosViviendas.listar-todos',['resultado'=>$resultado, 'id_vecino'=>$vecino->id, 'datoVecino'=>$datoVecino]);
+            return view ('vecinosViviendas.listar-todos',['resultado'=>$resultado, 'vecino_id'=>$vecino->id, 'datoVecino'=>$datoVecino]);
         //return $viviendasVecinos;
                             
        
     }
 
-    public function create(string $id_vecino)
+    public function create(string $vecino_id)
     {
         
-        $nombreVecino = DB::table('vecinos') -> where('id','=',$id_vecino) ->first();
+        $nombreVecino = DB::table('vecinos') -> where('id','=',$vecino_id) ->first();
 
         $consulta = "select v.id, c.direccion, v.numero, v.piso, v.puerta, v.escalera 
                      from viviendas v, comunidades c where v.comunidad_id =c.id order by c.direccion";
                      
 
         $listaViviendas = DB::select($consulta);        
-
-        $comunidades = DB::table('comunidades')->get();
-        
-        $vector=[];
-
-        foreach ($comunidades as $com)
-        {
-            
-             $v = DB::table('viviendas')->where('comunidad_id','=',$com->id)->get();
-             
-
-             if (DB::table('viviendas')->where('comunidad_id','=',$com->id)->count()>0)
-             {            
-                 $registro=[];
-                 
-                 $registro=['direccion'=>$com->direccion];
-                 $vivienda=[];
-                 foreach($v as $v1)
-                 {                 
-                    $vivienda[] =['id'=>$v1->id,'numero'=>$v1->numero,'piso'=>$v1->piso,'puerta'=>$v1->puerta,'escalera'=>$v1->escalera];                    
-                 }
-                 
-                 $registro = Arr::add($registro, 'viviendas',$vivienda);
-                 
-                 $vector[]=$registro;        
-             }     
-             
-
-        }
-        
             
 
         $nombreCompleto = $nombreVecino->nombre." ".$nombreVecino->apellido1." ".$nombreVecino->apellido2;
-        return  view ('vecinosViviendas.nuevo',['listaViviendas'=>$listaViviendas, 'vector'=>$vector, 'id_vecino'=>$id_vecino,'nombreVecino'=>$nombreCompleto]);
+        
+                
+        return  view ('vecinosViviendas.nuevo',['listaViviendas'=>$listaViviendas, 'vecino_id'=>$vecino_id,'nombreVecino'=>$nombreCompleto]);
     }
 
     public function store(Request $request)
     {
         //
-       $reglas=['fecha_ini'=>'required|date',
+       $reglas=['fecha_inicio'=>'required|date',
                 'fecha_fin'=>'required|date',
                 'id_vecino'=>'required',                
                 'id_vivienda'=>'required',                
@@ -93,11 +66,11 @@ class VecinoViviendaController extends Controller
         $request ->validate($reglas);
 
         vecinosVivienda::create([
-            'fecha_inicio'=>$request['fecha_ini'],
+            'fecha_inicio'=>$request['fecha_inicio'],
             'fecha_fin'=>$request['fecha_fin'],            
-            'vecino_id'=>$request['id_vecino'],
-            'vivienda_id'=>$request['id_vivienda'],            
-        ]);
+            'vecino_id'=>$request['vecino_id'],
+            'vivienda_id'=>$request['vivienda_id'],            
+        ]);        
 
         //$nuevoVecino = $request;
         
