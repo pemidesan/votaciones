@@ -8,6 +8,7 @@ use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\ViviendaController;
 use App\Http\Controllers\VecinoViviendaController;
 use App\Http\Controllers\AdministradorComunidadController;
+use App\Http\Controllers\ReunionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,6 @@ Route::get('administradorComunidad/listar/{administrator}',[AdministradorComunid
 Route::get('administradorComunidad/crear/{administrator_id}',[AdministradorComunidadController::class,'create']) -> name('crearAdministradorComunidad');
 Route::post('administradorComunidad/guardar',[AdministradorComunidadController::class,'store']) ->name('administradorComunidadGrabar');
 Route::delete('administradorComunidad/borrar/{id_administradorComunidad}',[AdministradorComunidadController::class,'destroy']) -> name('borrarAdministradorComunidad');
+Route::get('reuniones',[ReunionController::class,'index']) -> name('reuniones');
+Route::get('reuniones/crear/{comunidad_id}',[ReunionController::class,'create'])->name('crearReunion');
+Route::post('reuniones/guardar',[ReunionController::class,'store'])->name('grabarReunion');

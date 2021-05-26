@@ -12,5 +12,9 @@
         <div class="alert alert-success" role="alert">
             <a href="{{route('comunidades.index')}}">Gestión de Comunidades</a>
         </div> 
+
+        <div class="alert alert-primary" role="alert">
+            <a href="{{route('reuniones')}}">Gestión de Reuniones</a>
+          </div>
        
 @endsection
