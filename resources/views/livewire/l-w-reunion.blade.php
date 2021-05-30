@@ -10,18 +10,38 @@
             @endforeach        
         </select>
     </div>
+    <br>
+
+    @if($selectedComunidad != -1)             
+        <button wire:click="annadir({{$selectedComunidad}})" class="btn btn-primary">Añadir Reunión</button>
+    @endif
 
     @if(!is_null($reuniones))
         <div class="form-group">           
             <br><br><h3>Reuniones Activas</h3>
-            <table class="table" name="vivienda_id" wire:model="reuniones">            
-                <tr><td>Fecha Reunión</td><td>Descripción o título</td></tr>
+            <table class="table" name="vivienda_id" wire:model="reuniones">      
+                <thead>
+                    <tr><td>Fecha Reunión</td><td>Descripción o título</td><td>Eliminar Reunión</td><td></td></tr>
+                </thead>      
+                
                     @foreach ($reuniones as $r)
                     <tr>
-                    <td><div class="alert alert-success" role="alert">
-                        {{$r->fecha}}</td>
-                        <td><div class="alert alert-success" role="alert">
-                            {{$r->descripcion}}</td>
+                        <td>{{$r->fecha}}</td>
+                        <td>{{$r->descripcion}}</td>
+                        <td>
+                            <form action="{{route('borrarReunion',['reunion'=>$r])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type='submit'><i class="bi bi-trash"></i></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="#" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type='submit' class="btn btn-success ">Votaciones</button>
+                            </form>
+                        </td>
                     </tr>
 
 
@@ -34,9 +54,7 @@
         </div>
     @endif
     
-    @if($selectedComunidad != -1)             
-        <button wire:click="annadir({{$selectedComunidad}})" class="btn btn-primary">Añadir Reunión</button>
-    @endif
+    
 </div>
 </div>
 

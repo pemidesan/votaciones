@@ -67,6 +67,13 @@ class ReunionController extends Controller
         return view ('reuniones.accionOk');
 
     }
+
+    public function destroy(Reunion $reunion)
+    {
+        $reunion->delete();
+        return view ('reuniones.accionBorrar');
+
+    }
     
     
 }

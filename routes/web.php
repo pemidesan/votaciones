@@ -52,3 +52,4 @@ Route::delete('administradorComunidad/borrar/{id_administradorComunidad}',[Admin
 Route::get('reuniones',[ReunionController::class,'index']) -> name('reuniones');
 Route::get('reuniones/crear/{comunidad_id}',[ReunionController::class,'create'])->name('crearReunion');
 Route::post('reuniones/guardar',[ReunionController::class,'store'])->name('grabarReunion');
+Route::delete('reuniones/borrar/{reunion}',[ReunionController::class,'destroy']) -> name('borrarReunion');
