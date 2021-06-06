@@ -21,6 +21,7 @@ class CreateViviendasTable extends Migration
             $table->string('puerta',3);                        
             $table->string('escalera',50);
             $table->float('ratio',3,2)->unsigned();
+            $table->string('mail',50);
             $table->timestamps();
         });
     }

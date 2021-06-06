@@ -36,11 +36,11 @@
                             </form>
                         </td>
                         <td>
-                            <form action="#" method="POST">
+                            <form action="{{route('verEncuestas',['reunion_id'=>$r->id])}}" method="GET">
                                 @csrf
-                                @method('DELETE')
-                                <button type='submit' class="btn btn-success ">Votaciones</button>
-                            </form>
+                                @method('GET')
+                                <button type='submit' class="btn btn-success">Gestión de Votaciones</button>
+                            </form>	
                         </td>
                     </tr>
 

@@ -11,7 +11,7 @@ class Vivienda extends Model
 {
     use HasFactory;
     protected $table = 'viviendas';
-    protected $fillable = ['direccion','numero','piso','puerta','escalera','ratio','comunidad_id'];
+    protected $fillable = ['direccion','numero','piso','puerta','escalera','ratio','mail','comunidad_id'];
     protected $hidden = ['created_at','updated_at'];
     
     public function comunidad()

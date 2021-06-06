@@ -45,7 +45,7 @@ class VecinoController extends Controller
                 'apellido1'=>'required',
                 'apellido2'=>'required',
                 'telefono'=>'required',
-                'mail'=>'required|email:rfc,dns',        
+                'mail'=>'required|email:rfc',        
         ];
         $request ->validate($reglas);
 
@@ -101,7 +101,7 @@ class VecinoController extends Controller
        'form_apellido1_vecino'=>'required',
        'form_apellido2_vecino'=>'required',                       
        'form_telefono_vecino'=>'required',
-       'form_email_vecino'=>'required|email:rfc,dns',        
+       'form_email_vecino'=>'required|email:rfc',        
         ];
         $request ->validate($reglas);
 

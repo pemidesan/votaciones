@@ -1,5 +1,5 @@
 @extends('layout.main-layout')
-@section('page-title','Nuevo vecino')
+@section('page-title','Sin administrador asignado')
 @section('content-area')
-    <h1>Registro Borrado correctamente</h1>    
+    <h1>Reunión correctamente eliminada.</h1>    
 @endsection

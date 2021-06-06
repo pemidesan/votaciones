@@ -33,9 +33,39 @@ use Illuminate\Support\Facades\DB;
      }
 
      public function edit(Vivienda $vivienda)
-     {
-         return ('edit');
-     }
+    {
+        //
+        $comunidad = Comunidad::where ('id','=',$vivienda->comunidad_id)->first();
+        $nombreComunidad = $comunidad->direccion;
+        
+
+        return view ('viviendas.editar') -> with (['nombreComunidad'=>$nombreComunidad,'vivienda'=>$vivienda]);
+    }
+
+    public function update(Request $request, Vivienda $vivienda)
+    {
+        
+       $reglas=['form_numero'=>'required',
+       'form_piso'=>'required',
+       'form_puerta'=>'required',                       
+       'form_escalera'=>'required',
+       'form_ratio'=>'required',   
+       'form_email'=>'required|email:rfc'     
+        ];
+        $request ->validate($reglas);
+
+        $nuevaVivienda = Vivienda::find($vivienda->id);
+        $nuevaVivienda->piso = $request->form_piso;
+        $nuevaVivienda->puerta = $request->form_puerta;
+        $nuevaVivienda->escalera = $request->form_escalera;
+        $nuevaVivienda->ratio = $request->form_ratio;
+        $nuevaVivienda->mail = $request->form_email;        
+        $nuevaVivienda->save();
+
+        return view ("viviendas.accionOk",['accion'=>'actualizado']);
+    }
+
+     
 
      public function destroy(Vivienda $vivienda)
      {
@@ -55,7 +85,8 @@ use Illuminate\Support\Facades\DB;
          $reglas =['numero'=>'required',
                    'piso'=>'required',
                    'puerta'=>'required',
-                   'ratio'=>'required'                   
+                   'ratio'=>'required',
+                   'mail'=>'required|email:rfc'                   
                    ];
          $request->validate($reglas);
          Vivienda::create([             
@@ -64,6 +95,7 @@ use Illuminate\Support\Facades\DB;
              'puerta'=>$request['puerta'],
              'escalera'=>$request['escalera'],
              'ratio'=>$request['ratio'],
+             'mail'=>$request['mail'],
              'comunidad_id'=>$request['comunidad_id']
          ]);
          return view ('viviendas.accionOk')->with(['accion'=>'creada']);

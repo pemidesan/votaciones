@@ -43,7 +43,7 @@ class ReunionController extends Controller
         }
         
         else
-            return ("fallazo");
+            return view ('reuniones.sinAdmin');
     }
 
     public function store(Request $request)

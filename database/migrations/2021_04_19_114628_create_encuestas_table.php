@@ -18,8 +18,9 @@ class CreateEncuestasTable extends Migration
             $table->id();            
             $table->text('pregunta');
             $table->text('vectorOpciones');
-            $table->text('vectorVotos');
-            $table->text('vectorViviendas');
+            $table->text('vectorVotos')->nullable();
+            $table->text('vectorViviendas')->nullable();
+            $table->char('estado');
             $table->timestamps();
         });
     }
